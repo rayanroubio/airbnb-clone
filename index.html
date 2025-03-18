@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Fixed Show Map Button -->
+    <div class="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50">
+        <button class="bg-black text-white px-4 py-3 rounded-full flex items-center space-x-2 shadow-lg hover:scale-105 transition-transform">
+            <span class="font-medium">Show map</span>
+            <svg viewBox="0 0 32 32" class="h-4 w-4 fill-current">
+                <path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-------------------Navigation Menu-------------------------------->
+    <nav class="flex items-center justify-between sticky top-0 z-50 bg-white px-20 py-4 border-b">
+        <!-- Logo -->
+        <div class="flex-none">
+            <img class="h-8" src="./assets/logo.png" alt="Airbnb" />
+        </div>
+
+        <!-- Center Navigation -->
+        <div class="flex space-x-8 text-sm">
+            <a href="/" class="font-medium">Stays</a>
+            <a href="/experiences.html" class="text-gray-500 hover:text-black">Experiences</a>
+        </div>
+
+        <!-- Right Menu -->
+        <div class="flex items-center space-x-4">
+            <button class="text-sm font-medium hover:bg-gray-100 rounded-full px-4 py-3">
+                Airbnb your home
+            </button>
+            <button class="p-3 hover:bg-gray-100 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"></path></svg>
+            </button>
+            <div class="flex items-center border rounded-full p-1 hover:shadow-md">
+                <button class="p-2">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <button class="p-1">
+                    <img src="https://a0.muscache.com/im/Portrait/Avatars/messaging/b3e03835-ade9-4eb7-a0bb-2466ab9a534d.jpg?im_t=R&im_w=240&im_f=airbnb-cereal-medium.ttf&im_c=ffffff" alt="User" class="h-8 w-8 rounded-full" />
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="flex justify-center py-4">
+        <div class="flex items-center shadow-sm border rounded-full">
+            <div class="px-8 py-2 border-r">
+                <div class="text-sm font-medium">Where</div>
+                <input type="text" placeholder="Search destinations" class="text-sm outline-none w-full" />
+            </div>
+            <div class="px-8 py-2 border-r">
+                <div class="text-sm font-medium">Check in</div>
+                <div class="text-sm text-gray-400">Add dates</div>
+            </div>
+            <div class="px-8 py-2 border-r">
+                <div class="text-sm font-medium">Check out</div>
+                <div class="text-sm text-gray-400">Add dates</div>
+            </div>
+            <div class="px-8 py-2 flex items-center">
+                <div>
+                    <div class="text-sm font-medium">Who</div>
+                    <div class="text-sm text-gray-400">Add guests</div>
+                </div>
+                <button class="ml-4 bg-[#FF385C] text-white p-3 rounded-full">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="flex items-center justify-between px-20 py-4 border-b overflow-x-auto">
+        <div class="flex space-x-8">
+            <!-- Countryside -->
+            <a href="#" class="flex flex-col items-center opacity-100 border-b-2 border-black pb-2">
+                <img src="https://a0.muscache.com/pictures/6ad4bd95-f086-437d-97e3-14d12155ddfe.jpg" class="w-6 h-6" alt="Countryside" />
+                <span class="text-xs mt-2">Countryside</span>
+            </a>
+            
+            <!-- Icons -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/im/pictures/mediaverse/category_icon/original/3e5243c8-4d15-4c6b-97e3-7ba2bb7bb880.png" class="w-6 h-6" alt="Icons" />
+                <span class="text-xs mt-2">Icons</span>
+            </a>
+            
+            <!-- Rooms -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg" class="w-6 h-6" alt="Rooms" />
+                <span class="text-xs mt-2">Rooms</span>
+            </a>
+            
+            <!-- Amazing pools -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/3fb523a0-b622-4368-8142-b5e03df7549b.jpg" class="w-6 h-6" alt="Amazing pools" />
+                <span class="text-xs mt-2">Amazing pools</span>
+            </a>
+            
+            <!-- Lakefront -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg" class="w-6 h-6" alt="Lakefront" />
+                <span class="text-xs mt-2">Lakefront</span>
+            </a>
+            
+            <!-- Domes -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/89faf9ae-bbbc-4bc4-aecd-cc15bf36cbca.jpg" class="w-6 h-6" alt="Domes" />
+                <span class="text-xs mt-2">Domes</span>
+            </a>
+            
+            <!-- Amazing views -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg" class="w-6 h-6" alt="Amazing views" />
+                <span class="text-xs mt-2">Amazing views</span>
+            </a>
+            
+            <!-- Cabins -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg" class="w-6 h-6" alt="Cabins" />
+                <span class="text-xs mt-2">Cabins</span>
+            </a>
+            
+            <!-- Beachfront -->
+            <a href="#" class="flex flex-col items-center opacity-60 hover:opacity-100">
+                <img src="https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg" class="w-6 h-6" alt="Beachfront" />
+                <span class="text-xs mt-2">Beachfront</span>
+            </a>
+
+            <!-- Next button -->
+            <button class="flex items-center justify-center w-7 h-7 bg-white border border-gray-200 rounded-full hover:shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Right side filters -->
+        <div class="flex items-center space-x-4">
+            <button class="flex items-center space-x-2 px-4 py-3 border rounded-xl hover:shadow-md transition-shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"><path fill="none" d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3"></path></svg>
+                <span class="text-xs font-medium">Filters</span>
+            </button>
+            <div class="flex items-center space-x-2 text-sm">
+                <span>Display total before taxes</span>
+                <button class="w-12 h-6 bg-gray-200 rounded-full relative">
+                    <div class="absolute w-5 h-5 bg-white rounded-full left-0.5 top-0.5"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------Header Banner---------------------------------->
+    <main class="px-20 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Room Card 1 -->
+            <div class="relative">
+                <div class="relative aspect-[1/1.1]">
+                    <img src="assets/room.jpg" class="w-full h-full object-cover rounded-xl" alt="Larbaa Beni Hassen" />
+                    <button class="absolute top-3 right-3 text-white">
+                        <svg viewBox="0 0 32 32" class="h-7 w-7 fill-white stroke-black stroke-2">
+                            <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                        </svg>
+                    </button>
+                    <span class="absolute top-3 left-3 bg-white px-2 py-1 rounded-md text-xs font-semibold">Guest favorite</span>
+                    
+                    <!-- Image Navigation Dots -->
+                    <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-90"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-50"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-50"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-50"></span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-base">Larbaa Beni Hassen, Morocco</h3>
+                            <p class="text-gray-500 text-sm">Hosted by Karim</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 32 32">
+                                <path fill-rule="evenodd" d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                            </svg>
+                            <span class="ml-1 font-medium">4.9</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">283 kilometers away</p>
+                    <p class="text-gray-500 text-sm">Mar 18 - 23</p>
+                    <div class="mt-2">
+                        <span class="font-semibold">MAD1,595</span>
+                        <span class="text-gray-500"> night</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Card 2 -->
+            <div class="relative">
+                <div class="relative aspect-[1/1.1]">
+                    <img src="assets/room.jpg" class="w-full h-full object-cover rounded-xl" alt="Asilah" />
+                    <button class="absolute top-3 right-3 text-white">
+                        <svg viewBox="0 0 32 32" class="h-7 w-7 fill-white stroke-black stroke-2">
+                            <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                        </svg>
+                    </button>
+                    
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-base">Asilah, Morocco</h3>
+                            <p class="text-gray-500 text-sm">Hosted by Karim</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 32 32">
+                                <path fill-rule="evenodd" d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                            </svg>
+                            <span class="ml-1 font-medium">4.91</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">247 kilometers away</p>
+                    <p class="text-gray-500 text-sm">Mar 18 - 23</p>
+                    <div class="mt-2">
+                        <span class="font-semibold">MAD1,620</span>
+                        <span class="text-gray-500"> night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative aspect-[1/1.1]">
+                    <img src="assets/room.jpg" class="w-full h-full object-cover rounded-xl" alt="Asilah" />
+                    <button class="absolute top-3 right-3 text-white">
+                        <svg viewBox="0 0 32 32" class="h-7 w-7 fill-white stroke-black stroke-2">
+                            <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                        </svg>
+                    </button>
+                    <span class="absolute top-3 left-3 bg-white px-2 py-1 rounded-md text-xs font-semibold">Guest favorite</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-base">Asilah, Morocco</h3>
+                            <p class="text-gray-500 text-sm">Hosted by Karim</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 32 32">
+                                <path fill-rule="evenodd" d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                            </svg>
+                            <span class="ml-1 font-medium">4.91</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">247 kilometers away</p>
+                    <p class="text-gray-500 text-sm">Mar 18 - 23</p>
+                    <div class="mt-2">
+                        <span class="font-semibold">MAD1,620</span>
+                        <span class="text-gray-500"> night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative aspect-[1/1.1]">
+                    <img src="assets/room.jpg" class="w-full h-full object-cover rounded-xl" alt="Asilah" />
+                    <button class="absolute top-3 right-3 text-white">
+                        <svg viewBox="0 0 32 32" class="h-7 w-7 fill-white stroke-black stroke-2">
+                            <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-base">Asilah, Morocco</h3>
+                            <p class="text-gray-500 text-sm">Hosted by Karim</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 32 32">
+                                <path fill-rule="evenodd" d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                            </svg>
+                            <span class="ml-1 font-medium">4.91</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">247 kilometers away</p>
+                    <p class="text-gray-500 text-sm">Mar 18 - 23</p>
+                    <div class="mt-2">
+                        <span class="font-semibold">MAD1,620</span>
+                        <span class="text-gray-500"> night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative aspect-[1/1.1]">
+                    <img src="assets/room.jpg" class="w-full h-full object-cover rounded-xl" alt="Asilah" />
+                    <button class="absolute top-3 right-3 text-white">
+                        <svg viewBox="0 0 32 32" class="h-7 w-7 fill-white stroke-black stroke-2">
+                            <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                        </svg>
+                    </button>
+                    <span class="absolute top-3 left-3 bg-white px-2 py-1 rounded-md text-xs font-semibold">Guest favorite</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-base">Asilah, Morocco</h3>
+                            <p class="text-gray-500 text-sm">Hosted by Karim</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 32 32">
+                                <path fill-rule="evenodd" d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                            </svg>
+                            <span class="ml-1 font-medium">4.91</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm">247 kilometers away</p>
+                    <p class="text-gray-500 text-sm">Mar 18 - 23</p>
+                    <div class="mt-2">
+                        <span class="font-semibold">MAD1,620</span>
+                        <span class="text-gray-500"> night</span>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <!-- Add more room cards following the same pattern -->
+        </div>
+    </main>
+    <!--------------Section: Explore Nearby----------------------------->
+    <main class="max-w-7xl mx-auto p-8 sm:p-16 space-y-20">
+        <section class="space-y-5">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Explore Nearby</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/london.png" />
+
+                    <div>
+                        <h3>London</h3>
+                        <h4 class="text-gray-500">45-minute drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/manchester.png" />
+
+                    <div>
+                        <h3>Manchester</h3>
+                        <h4 class="text-gray-500">4.5-hour drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/liverpool.png" />
+
+                    <div>
+                        <h3>Liverpool</h3>
+                        <h4 class="text-gray-500">4.5-hour drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/york.png" />
+
+                    <div>
+                        <h3>York</h3>
+                        <h4 class="text-gray-500">4-hour drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/cardiff.png" />
+
+                    <div>
+                        <h3>Cardiff</h3>
+                        <h4 class="text-gray-500">45-minute drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/birkenhead.png" />
+
+                    <div>
+                        <h3>Birkenhead</h3>
+                        <h4 class="text-gray-500">4.5-hour drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/newquay.png" />
+
+                    <div>
+                        <h3>Newquay</h3>
+                        <h4 class="text-gray-500">6-hour drive</h4>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 m-2 border border-gray-50 shadow-sm rounded-xl hover:bg-gray-100 cursor-pointer transform hover:scale-105 transition">
+                    <img class="w-16 h-16 rounded-tl-lg rounded-bl-lg" src="./assets/hove.png" />
+
+                    <div>
+                        <h3>Hove</h3>
+                        <h4 class="text-gray-500">2-hour drive</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!--------------Section: Greatest Outdoors-------------------------->
+        <section class="relative cursor-pointer">
+            <div class="min-w-[300px] h-96">
+                <img class="rounded-2xl h-full w-full object-cover" src="./assets/greatest-outdoors.png" />
+            </div>
+
+            <div class="absolute top-16 left-12 space-y-5">
+                <h3 class="text-4xl w-64">The Greatest Outdoors</h3>
+
+                <p>Wishlists curated by Airbnb.</p>
+
+                <button class="text-sm bg-gray-900 text-white px-4 py-2 rounded-lg">Get Inspired</button>
+            </div>
+        </section>
+    </main>
+    <!-----------------------Footer------------------------------------->
+    <footer class="bg-gray-100">
+        <div class="max-w-7xl mx-auto px-8 py-14 md:px-32 grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div class="text-gray-800 text-xs space-y-4">
+                <h5 class="font-bold">ABOUT</h5>
+                <p>How Airbnb works</p>
+                <p>Newsroom</p>
+                <p>Investors</p>
+                <p>Airbnb Plus</p>
+                <p>Airbnb Luxe</p>
+            </div>
+            <div class="space-y-4 text-xs text-gray-800">
+                <h5 class="font-bold">COMMUNITY</h5>
+                <p>Accessibility</p>
+                <p>Diversity & Belonging</p>
+                <p>Frontline Stays</p>
+                <p>Guest Referrals</p>
+                <p>Gift cards</p>
+            </div>
+            <div class="space-y-4 text-xs text-gray-800">
+                <h5 class="font-bold">HOST</h5>
+                <p>Host your home</p>
+                <p>Host an Online Experience</p>
+                <p>Responsible hosting</p>
+                <p>Resource Center</p>
+                <p>Community Center</p>
+            </div>
+            <div class="space-y-4 text-xs text-gray-800">
+                <h5 class="font-bold">SUPPORT</h5>
+                <p>Our COVID-19 Response</p>
+                <p>Help Center</p>
+                <p>Cancellation options</p>
+                <p>Neighborhood Support</p>
+                <p>Trust & Safety</p>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t z-50 px-20 py-4">
+        <div class="flex items-center justify-between text-sm">
+            <div class="flex items-center space-x-4">
+                <span>© 2025 Airbnb, Inc.</span>
+                <span>·</span>
+                <a href="#" class="hover:underline">Terms</a>
+                <span>·</span>
+                <a href="#" class="hover:underline">Sitemap</a>
+                <span>·</span>
+                <a href="#" class="hover:underline">Privacy</a>
+                <span>·</span>
+                <a href="#" class="hover:underline">Your Privacy Choices </a><span class="i9chubn atm_gz_1yuitx atm_vh_nkobfv dir dir-ltr"><svg width="26" height="12" fill="none"><rect x="0.5" y="0.5" width="25" height="11" rx="5.5" fill="#fff"></rect><path d="M14 1h7a5 5 0 010 10H11l3-10z" fill="#06F"></path><path d="M4.5 6.5l1.774 1.774a.25.25 0 00.39-.049L9.5 3.5" stroke="#06F" stroke-linecap="round"></path><path d="M16.5 3.5L19 6m0 0l2.5 2.5M19 6l2.5-2.5M19 6l-2.5 2.5" stroke="#fff" stroke-linecap="round"></path><rect x="0.5" y="0.5" width="25" height="11" rx="5.5" stroke="#06F"></rect></svg></span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"></path></svg>
+                    <span>English (US)</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span>MAD</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="#" class="hover:underline">Support & resources</a>
+                    <svg viewBox="0 0 32 32" class="h-4 w-4 fill-current">
+                        <path d="m4.29 10.29 11.71 11.71 11.71-11.71a1 1 0 1 0-1.41-1.41l-10.3 10.3-10.3-10.3a1 1 0 1 0-1.41 1.41z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
